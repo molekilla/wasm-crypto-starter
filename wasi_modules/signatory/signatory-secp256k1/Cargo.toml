@@ -1,0 +1,38 @@
+[package]
+name        = "signatory-secp256k1"
+description = "Signatory ECDSA provider for secp256k1-rs"
+version     = "0.19.0" # Also update html_root_url in lib.rs when bumping this
+license     = "Apache-2.0 OR MIT"
+authors     = ["Tony Arcieri <tony@iqlusion.io>"]
+homepage    = "https://github.com/iqlusioninc/signatory"
+repository  = "https://github.com/iqlusioninc/signatory/tree/develop/providers/signatory-secp256k1/"
+readme      = "README.md"
+categories  = ["authentication", "cryptography", "no-std"]
+keywords    = ["cryptography", "bitcoin", "ecdsa", "secp256k1", "signatures"]
+edition     = "2018"
+
+[badges]
+maintenance = { status = "passively-maintained" }
+
+[dependencies]
+secp256k1 = "0.17"
+sha3 = { version = "0.8", optional = true }
+signature = { version = "1", features = ["derive-preview"] }
+
+[dependencies.signatory]
+version = "0.19"
+features = ["digest", "ecdsa", "k256", "sha2"]
+path = ".."
+
+[dev-dependencies]
+criterion = "0.3"
+
+[dev-dependencies.signatory]
+version = "0.19"
+default-features = false
+features = ["digest", "ecdsa", "k256", "sha2", "test-vectors"]
+path = ".."
+
+[[bench]]
+name = "ecdsa"
+harness = false

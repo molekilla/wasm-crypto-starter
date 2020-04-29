@@ -1,0 +1,30 @@
+[package]
+name        = "signatory-sodiumoxide"
+description = "Signatory Ed25519 provider for sodiumoxide"
+version     = "0.19.0" # Also update html_root_url in lib.rs when bumping this
+license     = "Apache-2.0 OR MIT"
+authors     = ["Tony Arcieri <tony@iqlusion.io>"]
+homepage    = "https://github.com/iqlusioninc/signatory"
+repository  = "https://github.com/iqlusioninc/signatory/tree/develop/providers/signatory-sodiumoxide/"
+readme      = "README.md"
+categories  = ["authentication", "cryptography", "no-std"]
+keywords    = ["cryptography", "ed25519", "no_std", "sodiumoxide", "signatures"]
+edition     = "2018"
+
+[badges]
+maintenance = { status = "passively-maintained" }
+
+[dependencies]
+sodiumoxide = "0.2"
+
+[dependencies.signatory]
+version = "0.19"
+features = ["ed25519", "test-vectors"]
+path = ".."
+
+[dev-dependencies]
+criterion = "0.3"
+
+[[bench]]
+name = "ed25519"
+harness = false

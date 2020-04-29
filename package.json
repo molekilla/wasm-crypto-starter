@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "asbuild:untouched": "asc assembly/index.ts -b build/untouched.wasm -t build/untouched.wat --validate --sourceMap --debug",
+    "asbuild:optimized": "asc assembly/index.ts -b build/optimized.wasm -t build/optimized.wat --validate --sourceMap --optimize",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized",
+    "test": "node tests",
+    "postinstall": "cd xdvapp && npm i",
+    "build:wasm-modules": "wasm-pack build wasm-modules",
+    "asbuild:watch": "onchange -i 'assembly/**/*' -- npm run asbuild"
+  },
+  "dependencies": {
+    "@assemblyscript/loader": "^0.9.4",
+    "@chainsafe/as-sha256": "^0.2.0",
+    "@wasmer/wasi": "^0.10.2",
+    "as-bignum": "^0.1.7",
+    "assemblyscript-json": "^0.3.0",
+    "wasm-crypto": "0.0.3"
+  },
+  "devDependencies": {
+    "assemblyscript": "^0.9.4",
+    "onchange": "^7.0.1"
+  }
+}
