@@ -15,7 +15,7 @@ edition     = "2018"
 maintenance = { status = "passively-maintained" }
 
 [dependencies]
-secp256k1 = "0.17"
+secp256k1 = "0.22"
 sha3 = { version = "0.8", optional = true }
 signature = { version = "1", features = ["derive-preview"] }
 
